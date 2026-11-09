@@ -17,7 +17,7 @@ Stack: Make + Notion + OpenAI GPT-5 nano (Simple text prompt de Make) + Gmail. C
 ## Archivos
 
 - `docs/Mesa_Clara_Arquitectura_y_Manual.pdf`: arquitectura, modelo, costos, seguridad, pruebas y brechas.
-- `workflows/`: reconstrucciones técnicas JSON, no exportaciones finales verificadas. Leer advertencias antes de importar.
+- [Blueprint original de recepción](workflows/01_recepcion.blueprint.json) y [blueprint original de envío](workflows/02_envio.blueprint.json): exportados de Make y aportados por el usuario; JSON y mapeos revisados. [Instrucciones de importación](workflows/LEER_ANTES_DE_IMPORTAR.md).
 - `tests/resultados.csv`: resultados observados y pruebas pendientes.
 - `tests/aprobacion_T02.json`: aprobación textual del caso de demostración.
 - `docs/guion_video.md`: guion; no sustituye el video.
@@ -43,10 +43,10 @@ Requieren acceso a las cuentas. No se verificó publicación de solo lectura.
 ## Pendientes antes de la entrega
 
 1. Incorporar al PDF y anexos la verificación de T02 del 9/11 a las 13:22; el envío ya está confirmado.
-2. Probar versión obsoleta, rechazo y ausencia de duplicados. Completar rutas para fallos de Notion/Gmail previos al envío y fallos del registro posterior.
-3. Exportar los dos blueprints desde Make y capturar evidencia real.
+2. Probar versión obsoleta y rechazo. La segunda ejecución de T02 ya se verificó sin correo duplicado. Completar rutas para fallos de Notion/Gmail previos al envío y fallos del registro posterior.
+3. Incorporar capturas reales: los dos blueprints originales ya están publicados.
 4. Publicar dashboard sin correo personal ni datos sensibles; verificar acceso anónimo.
-5. Actualizar este repositorio con blueprints exportados y evidencias finales al completar las verificaciones.
+5. Incorporar las evidencias visuales finales al completar las verificaciones.
 6. Grabar demo de 3 minutos y activar programación dentro del presupuesto gratuito.
 
 ## Límites explícitos de la rúbrica
