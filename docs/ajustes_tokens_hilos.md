@@ -1,6 +1,12 @@
 # Ajustes de tokens y conversación
 
-Estado: pendientes de implementación y prueba en Make. Los blueprints publicados conservan la versión previamente verificada.
+Estado: implementación en Make y pruebas todavía pendientes. Los blueprints principales conservan la versión previamente verificada.
+
+## Avance comprobado
+- OpenAI: la conexión propia devolvió `[401] Your API key has expired. Create a new API key to continue.` al cargar modelos. Se confirmó que Generate a response expone Max Output Tokens. No se sustituyó el módulo activo ni se compró saldo.
+- Gmail: se configuró Reply to an email en el editor con conexión existente, Thread ID dinámico, destinatario específico y texto aprobado. A partir de esa exportación real se preparó el [blueprint con rutas de nuevo correo y respuesta](../workflows/pendientes/02_envio_hilos.blueprint.json).
+- El archivo conserva los filtros de aprobación y cliente, y duplica persistencia y manejo de errores para la nueva ruta. Es una versión preparada, **no desplegada ni probada en vivo**. La carga del archivo agotó el tiempo de espera y el navegador perdió la sesión antes de confirmar importación y guardado.
+- Para tokens hace falta renovar la API key en la conexión OpenAI de Make. La clave nunca debe incluirse en GitHub ni en el chat.
 
 ## Límite técnico de generación
 El módulo Simple text prompt actual no expone Max Output Tokens. Limitar el prompt a 180 palabras no configura un tope técnico.
