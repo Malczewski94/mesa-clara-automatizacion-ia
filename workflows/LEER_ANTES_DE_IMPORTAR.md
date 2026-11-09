@@ -5,7 +5,7 @@ Los archivos de entrega son:
 - [01_recepcion.blueprint.json](01_recepcion.blueprint.json): exportación original aportada por el usuario.
 - [02_envio.blueprint.json](02_envio.blueprint.json): exportación original aportada por el usuario.
 
-Se conservaron sus bytes y lógica. Los archivos con `_reconstruido` en el nombre son versiones preliminares, no deben usarse para la entrega ni importarse en lugar de los originales.
+Se conservaron sus bytes y lógica. Las reconstrucciones preliminares se retiraron. Utilizar las dos exportaciones originales enlazadas arriba.
 
 Validación: ambos JSON se pueden interpretar; se revisaron módulos, filtros, rutas de error y mapeos. No se encontraron correos personales ni claves en texto plano. Los IDs de conexiones son referencias de Make, no credenciales; las credenciales no se transfieren mediante estos archivos.
 
@@ -16,7 +16,7 @@ Validación: ambos JSON se pueden interpretar; se revisaron módulos, filtros, r
 3. Sustituir IDs de bases/páginas de Notion si se replica la base y refrescar el esquema y los identificadores de propiedades.
 4. Comprobar el disparador efectivo: recepción `select=create`; envío `select=update`. El label de restauración visual del emisor dice created time, pero el parámetro efectivo es update.
 5. Establecer el punto de inicio sin consumir registros históricos y revisar destinatarios antes de probar.
-6. Mantener la programación desactivada hasta terminar las verificaciones.
+6. En otra cuenta, mantener la programación desactivada hasta terminar las verificaciones. En la cuenta de demostración ambos escenarios quedaron activos cada seis horas; ver configuracion_operativa.json.
 
 T02 ya completó el camino aprobado y una segunda ejecución no duplicó el correo. La importación en otra cuenta no fue probada. Los IDs de infraestructura son fijos del entorno; los datos del ticket, destinatario, borrador y texto aprobado son dinámicos.
 
