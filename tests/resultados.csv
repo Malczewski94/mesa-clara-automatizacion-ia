@@ -1,12 +1,12 @@
 ID,Caso,Resultado,Estado
 T01,Acceso,"Borrador KB-001, Esperando aprobacion",Verificado
-T02,Reporte vacío,Borrador y aviso Gmail; aprobación registrada; envío final pendiente,Parcial
+T02,Reporte vacío,Borrador y aviso; aprobación versión 1; correo exacto enviado; fecha e hilo guardados; registro Correcto,Verificado
 T03,Consulta vacía,"Incompleto, registro Bloqueado, cero IA",Verificado
 T04,Cliente ausente,"Incompleto, registro Bloqueado, cero IA",Verificado
 T05,Inyección en consulta,Sin reembolso inventado; borrador KB-001 y aviso,Verificado
 T06,Modelo inválido,"Error de validación del módulo, registro Error y Break","Verificado, no caída real de API"
 E01,Emisor sin aprobados,Filtro dejó pasar cero; no hubo envío final,Verificado
-E02,Aprobación humana T02,Usuario dijo Apruebo T02; Notion Aprobado versión 1,Aprobación verificada; envío no verificado
+E02,Aprobación humana T02,Usuario dijo Apruebo T02; versión 1 enviada tras aprobación,Verificado
 E03,Versión obsoleta,Debe bloquear envío,Pendiente
-E04,Reejecución tras envío,Debe evitar duplicado,Pendiente
+E04,Reejecución tras envío,Segunda ejecución manual 13:25; cero pasan Solo aprobaciones; búsqueda Gmail sigue con un mensaje,Verificado en esta secuencia; no deduplicación global
 E05,Rechazo humano,Debe bloquear envío,Pendiente
