@@ -20,7 +20,7 @@ Fecha de cierre documental: 9 de noviembre de 2026.
 
 ## Incorporación pendiente
 
-Falta disponer de crédito en la API para completar la prueba con Max Output Tokens. La clave renovada verifica, pero la generación devolvió 429 por falta de crédito. Gmail ya fue probado con E07/E08 y una reejecución sin duplicados. El PDF describe la arquitectura inicial; esta actualización de la ruta de hilos se documenta en evidence/E07_E08_hilos.md.
+Se decidió conservar la versión integrada de OpenAI en Make sin compras adicionales. La ruta Gmail con hilos está implementada y probada. El PDF refleja esta arquitectura y distingue la prueba de configuración de 1200 tokens (API sin crédito) del flujo activo sin tope técnico configurable.
 
 El autor agregará el video final de aproximadamente tres minutos. El guion está en `docs/guion_video.md`; no debe mostrar credenciales ni direcciones personales. Los videos descartados no forman parte de la entrega.
 

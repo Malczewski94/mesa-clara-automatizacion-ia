@@ -1,32 +1,41 @@
-# Ajustes de tokens y conversación
+# Configuración de IA y continuidad de conversaciones
 
-Estado: Gmail implementado y probado; límite técnico de tokens bloqueado por falta de créditos en la API.
+## Decisión de entrega
+Se conserva GPT-5 nano mediante **Simple text prompt**, con la conexión integrada de Make. No se compra saldo de OpenAI ni se activa recarga automática. La conexión propia de OpenAI no participa del flujo activo.
 
-## Avance comprobado
-- OpenAI: la clave renovada pasó Verify. El 9 de noviembre a las 19:42 (Argentina) se probó un módulo aislado con GPT-5 nano, Max Output Tokens = 1200, esfuerzo mínimo, Store = false y sin crear conversación. La API devolvió `[429] You have no credits remaining`. No generó texto ni envió correos. Se descartó el módulo de prueba sin cambiar el flujo activo.
-- Gmail: el blueprint fue importado, guardado, reabierto y probado en Make. E07 respondió dentro del hilo original; E08 creó un correo nuevo; la reejecución no duplicó mensajes. [Evidencia](../evidence/E07_E08_hilos.md).
-- Para completar la prueba hace falta crédito disponible en la API. La clave ya es válida. No se compró saldo ni se activó recarga automática.
+Esta decisión prioriza la continuidad del piloto con los créditos disponibles en Make. La operación depende de esos créditos y de la vigencia de las conexiones Notion y Gmail; no se promete disponibilidad ilimitada.
 
-## Límite técnico de generación
-El módulo Simple text prompt actual no expone Max Output Tokens. Limitar el prompt a 180 palabras no configura un tope técnico.
-Cambio previsto: OpenAI Generate a response con conexión propia, GPT-5 nano, Max Output Tokens = 1200, razonamiento mínimo cuando esté disponible y Store = false. El tope incluye razonamiento y salida visible. Reutilizar el prompt dinámico y la ruta de error; mapear en Borrador la salida textual real del nuevo módulo.
-Antes de sustituir el módulo activo se debe comprobar la conexión con una generación aislada, sin correo. Un límite alcanzado o texto vacío debe bloquear el borrador, registrarse y quedar para revisión; no debe presentarse como respuesta completa.
-No se ha comprado saldo ni contratado un plan.
+## Límite de tokens: configuración ensayada
+El 9 de noviembre de 2026 a las 19:42 (Argentina) se ejecutó únicamente un módulo aislado Generate a response con estos parámetros:
 
-## Respuestas en el hilo
-El flujo actual crea un correo o responde en un hilo existente según el Thread ID de Notion.
-Cambio implementado: conservar todos los controles de aprobación y cliente, y separar dos rutas excluyentes después del bloqueo de envío:
-- Thread ID vacío: Send an email, como actualmente.
-- Thread ID presente: Reply to an email, con el identificador leído nuevamente de Notion, destinatario específico del cliente y el texto aprobado escapado.
-La ruta nueva debe persistir el Thread ID devuelto, la fecha y el estado Enviado; conservar registro de éxito y error con Break sin reintento de envío.
-No se debe sustituir el hilo del cliente por el hilo del aviso interno al aprobador. Una continuación se registra como un nuevo ticket vinculado al mismo cliente y al hilo existente, con nueva aprobación; no se borra la fecha de un ticket ya enviado para forzar un reenvío.
+| Parámetro | Valor |
+|---|---|
+| Modelo | gpt-5-nano |
+| Max Output Tokens | 1200 |
+| Reasoning effort | minimal |
+| Store | false |
+| Create a new conversation | false |
+| Prompt | Comprobación técnica sin datos de clientes |
 
-## Pruebas de aceptación
-1. Generación con el límite numérico visible en la entrada del módulo y consumo registrado.
-2. Manejo de respuesta incompleta o vacía sin notificación de borrador listo.
-3. Verificado E08: nuevo mensaje y Thread ID persistido.
-4. Verificado E07: mismo Thread ID de entrada y salida, destinatario correcto y texto técnico exacto.
-5. Verificada segunda ejecución sin duplicados. Los filtros de rechazo y versiones distintas se conservaron; su prueba específica previa es E03/E05.
+La conexión renovada pasó Verify, pero la generación devolvió **429: You have no credits remaining**. No se generó texto ni se enviaron correos. Se descartaron los cambios del editor y se conservó la recepción original activa, sin ejecuciones incompletas.
+
+[Historial de la prueba en Make](https://us2.make.com/2933793/scenarios/6962342/logs/719adaed5c504a22a1bad01bf17a5901). Requiere acceso a la cuenta.
+
+**Alcance:** la entrada de la ejecución demuestra el valor configurado. No prueba una generación exitosa con ese máximo ni su aplicación en la versión activa. Simple text prompt no expone ese control en la configuración utilizada. El pedido de hasta 180 palabras en el prompt no sustituye un tope técnico de tokens.
+
+## Conversaciones Gmail
+Implementado y probado:
+- Thread ID vacío: Send an email crea un correo.
+- Thread ID presente: Reply to an email responde dentro del hilo leído de Notion.
+- Ambas rutas conservan texto aprobado, destinatario del cliente, fecha, estado y registro de resultado.
+- Se mantienen los filtros de aprobación, versión y envío previo, y Break sin reenvío automático ante fallo Gmail.
+
+E07 conservó el hilo original; E08 creó uno nuevo. La segunda ejecución no duplicó mensajes. [Evidencia](../evidence/E07_E08_hilos.md).
+
+Cada continuación se registra como un ticket nuevo con su aprobación y el hilo existente. No se elimina la fecha de un ticket enviado para forzar otro envío.
+
+## Correspondencia con la consigna
+La integración de OpenAI y el flujo operativo están demostrados. El requisito de configurar Max Tokens en la generación activa queda como limitación declarada de esta entrega sin compras adicionales. No se presenta el ensayo fallido como cumplimiento completo.
 
 ## Referencias
 - [Módulos OpenAI de Make](https://apps.make.com/openai-modules)

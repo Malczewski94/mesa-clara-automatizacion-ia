@@ -59,3 +59,7 @@ Consultadas el 9 de noviembre de 2026:
 - [Anthropic: procesamiento por lotes](https://platform.claude.com/docs/en/build-with-claude/batch-processing).
 
 Las tarifas y los modelos disponibles pueden cambiar. Revalidar antes de ampliar el piloto.
+
+## Decisión final del piloto
+
+Se mantiene Simple text prompt integrado en Make, sin compras adicionales. La prueba aislada con API propia y máximo de 1200 tokens terminó en 429 por falta de crédito. Su configuración quedó registrada en el historial, pero no se incorporó al flujo activo. La inferencia operativa consume créditos de Make y sigue sujeta a la cuota disponible. El tope de palabras solicitado al modelo no es un límite de generación.

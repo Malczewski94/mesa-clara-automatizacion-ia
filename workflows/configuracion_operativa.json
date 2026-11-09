@@ -12,5 +12,18 @@
       "intervalo_minutos": 360
     }
   ],
-  "nota": "Confirmado en la interfaz Make; horario posterior a las exportaciones originales."
+  "nota": "Versión de entrega conservada sin compras adicionales. La operación consume créditos de Make; revisar cuota y conexiones durante la evaluación.",
+  "ia": {
+    "proveedor": "OpenAI integrado en Make",
+    "modulo": "Simple text prompt",
+    "modelo": "gpt-5-nano",
+    "api_key_propia_en_flujo": false,
+    "max_output_tokens_configurable": false,
+    "max_palabras_prompt": 180
+  },
+  "prueba_api_propia": {
+    "max_output_tokens": 1200,
+    "resultado": "429: no credits remaining",
+    "desplegada": false
+  }
 }

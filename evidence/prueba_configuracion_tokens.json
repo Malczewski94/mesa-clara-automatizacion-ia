@@ -1,0 +1,24 @@
+{
+  "tipo": "Registro documental de parámetros observados; no blueprint importable",
+  "fecha": "2026-11-09T19:42:19-03:00",
+  "modulo": "OpenAI Generate a response (aislado)",
+  "input": {
+    "model": "gpt-5-nano",
+    "max_output_tokens": 1200,
+    "reasoning": {
+      "effort": "minimal"
+    },
+    "store": false,
+    "create_conversation": false
+  },
+  "resultado": {
+    "http_status": 429,
+    "mensaje": "You have no credits remaining",
+    "respuesta_generada": false,
+    "correo_enviado": false
+  },
+  "desplegado": false,
+  "version_activa": "OpenAI Simple text prompt integrado de Make",
+  "alcance": "Acredita configuración de entrada, no generación exitosa ni límite en el flujo activo.",
+  "historial": "https://us2.make.com/2933793/scenarios/6962342/logs/719adaed5c504a22a1bad01bf17a5901"
+}

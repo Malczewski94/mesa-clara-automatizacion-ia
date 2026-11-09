@@ -43,3 +43,11 @@ Revisar colas incompletas, tickets Enviando sin confirmación y estados Error/Bl
 ## Límites de la versión
 
 No hay una transacción atómica entre Gmail y Notion ni una restricción global de unicidad por Mensaje ID. La secuencia probada evita reenviar T02, pero no garantiza exactamente una entrega bajo toda condición de concurrencia. No se probó una caída real de Gmail. La ruta T06 verifica la captura de un error de validación del módulo, no una indisponibilidad del proveedor.
+
+## Continuidad durante la evaluación
+
+Mantener ambos escenarios activos cada seis horas. Recepción utiliza OpenAI integrado en Make; no depende de la clave ni del saldo de la API propia ensayada. No activar esa variante sin revisar acceso, costo y pruebas.
+
+Revisar créditos de Make, conexiones Gmail/Notion y ejecuciones incompletas. El sondeo estimado es de 240 consultas por 30 días, más procesamiento, IA y reintentos. No se garantiza duración indefinida del plan gratuito ni se habilitó recarga automática. Mantener el panel público disponible hasta finalizar la corrección.
+
+Para una continuación de conversación, crear otro ticket con el mismo Thread ID y nueva aprobación. El router enviará una respuesta en ese hilo. Si no hay identificador, creará un correo nuevo.
