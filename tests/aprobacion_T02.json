@@ -1,0 +1,11 @@
+{
+  "ticket_id": "413a7092-92e9-81ae-9c76-f61256d1ae97",
+  "texto_aprobado": "Para revisar el CSV vacío, verificá que el rango de fechas contenga movimientos y que tengas permiso para acceder al reporte. Luego volvé a exportarlo desde Reportes → Exportar CSV. Si continúa vacío, el caso requiere revisión del equipo de soporte. Fuente: KB-002.",
+  "version": 1,
+  "version_aprobada": 1,
+  "estado_observado": "Aprobado",
+  "aprobacion_usuario": "Apruebo T02",
+  "aprobacion_registrada_utc": "2026-11-09T14:50:39Z",
+  "enviado": false,
+  "observacion": "Sin fecha de envío ni hilo en la última lectura. No ejecutar un envío alternativo fuera del flujo."
+}

@@ -1,0 +1,476 @@
+{
+  "fecha": "2026-11-09",
+  "origen": "Esquema leído de las cinco bases reales mediante el conector Notion; no contiene registros personales.",
+  "bases": [
+    {
+      "name": "Clientes demo",
+      "schema": {
+        "Activo": {
+          "description": "",
+          "name": "Activo",
+          "type": "checkbox"
+        },
+        "Cliente": {
+          "description": "",
+          "name": "Cliente",
+          "type": "title"
+        },
+        "Codigo": {
+          "description": "",
+          "name": "Codigo",
+          "type": "text"
+        },
+        "Correo": {
+          "description": "",
+          "name": "Correo",
+          "type": "email"
+        },
+        "Plan": {
+          "description": "",
+          "name": "Plan",
+          "options": [
+            {
+              "color": "gray",
+              "description": "",
+              "name": "Basico",
+              "url": "collectionPropertyOption://be7f9b8e-ecf1-4ced-b977-ff0df9453cdf/TV9tdw/MzQ5YjFmMmQtMmNlOC00YjYwLTg0NDktOWYzNjU4NTU1MDdh"
+            },
+            {
+              "color": "blue",
+              "description": "",
+              "name": "Profesional",
+              "url": "collectionPropertyOption://be7f9b8e-ecf1-4ced-b977-ff0df9453cdf/TV9tdw/YTM4NDA1N2EtMmQ2YS00ZmEyLWE3MDEtYTMyM2E0M2Y4YzIy"
+            }
+          ],
+          "type": "select"
+        }
+      },
+      "url": "collection://be7f9b8e-ecf1-4ced-b977-ff0df9453cdf"
+    },
+    {
+      "name": "Conocimiento",
+      "schema": {
+        "Articulo": {
+          "description": "",
+          "name": "Articulo",
+          "type": "title"
+        },
+        "Categoria": {
+          "description": "",
+          "name": "Categoria",
+          "options": [
+            {
+              "color": "blue",
+              "description": "",
+              "name": "Acceso",
+              "url": "collectionPropertyOption://9d8a47af-5444-4612-8819-9167a43a3d6f/PlR5Zg/MmIxYjM5ZTItODYzYS00OGUyLWJlMDctYzAzMzJjYzRkZjM3"
+            },
+            {
+              "color": "green",
+              "description": "",
+              "name": "Uso",
+              "url": "collectionPropertyOption://9d8a47af-5444-4612-8819-9167a43a3d6f/PlR5Zg/MGZjYmRiYTktYWQ0NS00Zjc2LWFiOGYtYmVlODg5OTJjYjBh"
+            },
+            {
+              "color": "orange",
+              "description": "",
+              "name": "Facturacion",
+              "url": "collectionPropertyOption://9d8a47af-5444-4612-8819-9167a43a3d6f/PlR5Zg/YjEyOTU1ZWQtZTY4Zi00YTE2LTk2YzEtNjk1MDY0OTg5OWFj"
+            }
+          ],
+          "type": "select"
+        },
+        "Contenido": {
+          "description": "",
+          "name": "Contenido",
+          "type": "text"
+        },
+        "Version": {
+          "description": "",
+          "name": "Version",
+          "type": "number"
+        },
+        "Vigente": {
+          "description": "",
+          "name": "Vigente",
+          "type": "checkbox"
+        }
+      },
+      "url": "collection://9d8a47af-5444-4612-8819-9167a43a3d6f"
+    },
+    {
+      "name": "Tickets",
+      "schema": {
+        "Aprobado el": {
+          "description": "",
+          "name": "Aprobado el",
+          "querySqlColumns": {
+            "columns": [
+              {
+                "name": "date:Aprobado el:start",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Aprobado el:end",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Aprobado el:is_datetime",
+                "sqlType": "INTEGER"
+              }
+            ],
+            "usage": "For connections.notion.querySql. Main schema name not queryable."
+          },
+          "type": "date"
+        },
+        "Borrador": {
+          "description": "",
+          "name": "Borrador",
+          "type": "text"
+        },
+        "Categoria": {
+          "description": "",
+          "name": "Categoria",
+          "options": [
+            {
+              "color": "blue",
+              "description": "",
+              "name": "Acceso",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/XVB6eA/YmYxMTkzMzEtMWY2YS00YjFjLWJmMGEtZjFjY2Y2YTA2MzUz"
+            },
+            {
+              "color": "green",
+              "description": "",
+              "name": "Uso",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/XVB6eA/MDNhMGUwNDgtM2IxOC00ZTBlLWE0ZmUtNDFhN2IyNjU2ZjFm"
+            },
+            {
+              "color": "orange",
+              "description": "",
+              "name": "Facturacion",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/XVB6eA/OTU4Mzk2MjAtZDY3YS00NTQ3LWEyOGEtNmFmNjlmZGQ1N2Iy"
+            },
+            {
+              "color": "gray",
+              "description": "",
+              "name": "Otro",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/XVB6eA/ZmJjYWUyNzEtYzZmNi00MzY1LTkxNzItZmM5Nzk2NjdmMWQy"
+            }
+          ],
+          "type": "select"
+        },
+        "Cliente": {
+          "dataSourceUrl": "collection://be7f9b8e-ecf1-4ced-b977-ff0df9453cdf",
+          "description": "",
+          "name": "Cliente",
+          "type": "relation"
+        },
+        "Confianza": {
+          "description": "",
+          "name": "Confianza",
+          "type": "number"
+        },
+        "Consulta": {
+          "description": "",
+          "name": "Consulta",
+          "type": "text"
+        },
+        "Creado": {
+          "description": "",
+          "name": "Creado",
+          "type": "created_time"
+        },
+        "Enviado el": {
+          "description": "",
+          "name": "Enviado el",
+          "querySqlColumns": {
+            "columns": [
+              {
+                "name": "date:Enviado el:start",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Enviado el:end",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Enviado el:is_datetime",
+                "sqlType": "INTEGER"
+              }
+            ],
+            "usage": "For connections.notion.querySql. Main schema name not queryable."
+          },
+          "type": "date"
+        },
+        "Error detalle": {
+          "description": "",
+          "name": "Error detalle",
+          "type": "text"
+        },
+        "Estado": {
+          "description": "",
+          "name": "Estado",
+          "options": [
+            {
+              "color": "gray",
+              "description": "",
+              "name": "Pendiente",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/ZjhjMDY2OTktMTU3Ny00Njg3LTlmODktODUwYTQ1ODQ0NWFj"
+            },
+            {
+              "color": "blue",
+              "description": "",
+              "name": "Procesando",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/MzE2YmY0N2EtOTM1NC00YmVkLTk3YzgtY2Q5NzI3OWMxZWE1"
+            },
+            {
+              "color": "yellow",
+              "description": "",
+              "name": "Esperando aprobacion",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/MWZkZTgxODItMjYzMS00OWRkLWFhM2QtYzdkY2VlZTFlZGEx"
+            },
+            {
+              "color": "green",
+              "description": "",
+              "name": "Aprobado",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/MWIzMDE4MTQtOGEwZS00ZTQ1LWI3YTQtMTZmMTJiZGY5Mjg4"
+            },
+            {
+              "color": "red",
+              "description": "",
+              "name": "Rechazado",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/YWZjNWJiMzQtMTk3MS00YzkyLWEzNWEtMGI4OWVlZjZmMzY4"
+            },
+            {
+              "color": "purple",
+              "description": "",
+              "name": "Enviando",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/Zjk3ZTZjMmUtYzQxMS00NzM3LWEzZmYtNWZhM2YzMjA0NzRk"
+            },
+            {
+              "color": "green",
+              "description": "",
+              "name": "Enviado",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/MDk5NDUyZDAtMGNkMS00YWI2LWFkZDItMjEzMGQ4Zjk3YzNi"
+            },
+            {
+              "color": "red",
+              "description": "",
+              "name": "Error",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/YjA1MmVmMzUtYTU1Ny00M2I3LTg0MDMtZmQxOGEzNWJmNmUx"
+            },
+            {
+              "color": "orange",
+              "description": "",
+              "name": "Incompleto",
+              "url": "collectionPropertyOption://43dca525-20fb-4c2c-bf42-1cd81df58626/fF5jWA/YzUyMTFhZmUtM2JhMy00ZDljLTg2NjktYzY5YzJmMDIyOWMz"
+            }
+          ],
+          "type": "select"
+        },
+        "Fuentes": {
+          "dataSourceUrl": "collection://9d8a47af-5444-4612-8819-9167a43a3d6f",
+          "description": "",
+          "name": "Fuentes",
+          "type": "relation"
+        },
+        "Mensaje ID": {
+          "description": "",
+          "name": "Mensaje ID",
+          "type": "text"
+        },
+        "Modelo": {
+          "description": "",
+          "name": "Modelo",
+          "type": "text"
+        },
+        "Texto aprobado": {
+          "description": "",
+          "name": "Texto aprobado",
+          "type": "text"
+        },
+        "Thread ID": {
+          "description": "",
+          "name": "Thread ID",
+          "type": "text"
+        },
+        "Ticket": {
+          "description": "",
+          "name": "Ticket",
+          "type": "title"
+        },
+        "Version": {
+          "description": "",
+          "name": "Version",
+          "type": "number"
+        },
+        "Version aprobada": {
+          "description": "",
+          "name": "Version aprobada",
+          "type": "number"
+        }
+      },
+      "url": "collection://43dca525-20fb-4c2c-bf42-1cd81df58626"
+    },
+    {
+      "name": "Ejecuciones",
+      "notAvailableInQuerySql": [
+        "Es error",
+        "Es terminado"
+      ],
+      "schema": {
+        "Codigo error": {
+          "description": "",
+          "name": "Codigo error",
+          "type": "text"
+        },
+        "Creditos": {
+          "description": "",
+          "name": "Creditos",
+          "type": "number"
+        },
+        "Detalle seguro": {
+          "description": "",
+          "name": "Detalle seguro",
+          "type": "text"
+        },
+        "Ejecucion": {
+          "description": "",
+          "name": "Ejecucion",
+          "type": "title"
+        },
+        "Es error": {
+          "codeUrl": "formulaCode://b4715bc7-f0e4-4323-948f-5954c10b9780/XjtgPg",
+          "description": "",
+          "name": "Es error",
+          "type": "formula"
+        },
+        "Es terminado": {
+          "codeUrl": "formulaCode://b4715bc7-f0e4-4323-948f-5954c10b9780/c0hmcA",
+          "description": "",
+          "name": "Es terminado",
+          "type": "formula"
+        },
+        "Etapa": {
+          "description": "",
+          "name": "Etapa",
+          "type": "text"
+        },
+        "Fin": {
+          "description": "",
+          "name": "Fin",
+          "querySqlColumns": {
+            "columns": [
+              {
+                "name": "date:Fin:start",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Fin:end",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Fin:is_datetime",
+                "sqlType": "INTEGER"
+              }
+            ],
+            "usage": "For connections.notion.querySql. Main schema name not queryable."
+          },
+          "type": "date"
+        },
+        "Inicio": {
+          "description": "",
+          "name": "Inicio",
+          "querySqlColumns": {
+            "columns": [
+              {
+                "name": "date:Inicio:start",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Inicio:end",
+                "sqlType": "TEXT"
+              },
+              {
+                "name": "date:Inicio:is_datetime",
+                "sqlType": "INTEGER"
+              }
+            ],
+            "usage": "For connections.notion.querySql. Main schema name not queryable."
+          },
+          "type": "date"
+        },
+        "Intentos": {
+          "description": "",
+          "name": "Intentos",
+          "type": "number"
+        },
+        "Resultado": {
+          "description": "",
+          "name": "Resultado",
+          "options": [
+            {
+              "color": "blue",
+              "description": "",
+              "name": "En curso",
+              "url": "collectionPropertyOption://b4715bc7-f0e4-4323-948f-5954c10b9780/QlFQUg/MDUwYjYxNzYtMWRhMy00MmI4LTgwNzMtN2YzOTk1OWNkMDVj"
+            },
+            {
+              "color": "green",
+              "description": "",
+              "name": "Correcto",
+              "url": "collectionPropertyOption://b4715bc7-f0e4-4323-948f-5954c10b9780/QlFQUg/MjNiNThhMTAtYWZiOC00YmI0LWExNjMtYTg5NmFlZjRiYjky"
+            },
+            {
+              "color": "red",
+              "description": "",
+              "name": "Error",
+              "url": "collectionPropertyOption://b4715bc7-f0e4-4323-948f-5954c10b9780/QlFQUg/MGYzOGMzYzctMzYxYy00ZGI0LWJmNTMtZTdhYThhOWYzYWVj"
+            },
+            {
+              "color": "orange",
+              "description": "",
+              "name": "Bloqueado",
+              "url": "collectionPropertyOption://b4715bc7-f0e4-4323-948f-5954c10b9780/QlFQUg/ZDNjODAxYjMtOWJmNS00ZDFkLThmODItYTg0NzY3NDRmMzJj"
+            },
+            {
+              "color": "gray",
+              "description": "",
+              "name": "Duplicado",
+              "url": "collectionPropertyOption://b4715bc7-f0e4-4323-948f-5954c10b9780/QlFQUg/MGI1MWUwODAtNDYzZC00OTJlLWI0YmMtNDFhOTNlYzVjZGE5"
+            }
+          ],
+          "type": "select"
+        },
+        "Ticket": {
+          "dataSourceUrl": "collection://43dca525-20fb-4c2c-bf42-1cd81df58626",
+          "description": "",
+          "name": "Ticket",
+          "type": "relation"
+        }
+      },
+      "url": "collection://b4715bc7-f0e4-4323-948f-5954c10b9780"
+    },
+    {
+      "name": "Configuracion",
+      "schema": {
+        "Descripcion": {
+          "description": "",
+          "name": "Descripcion",
+          "type": "text"
+        },
+        "Parametro": {
+          "description": "",
+          "name": "Parametro",
+          "type": "title"
+        },
+        "Valor": {
+          "description": "",
+          "name": "Valor",
+          "type": "text"
+        }
+      },
+      "url": "collection://f682b086-b87e-402f-ae99-8df7e0206cb4"
+    }
+  ]
+}

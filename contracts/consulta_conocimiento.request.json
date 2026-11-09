@@ -1,0 +1,9 @@
+{
+  "filter": {
+    "property": "Vigente",
+    "checkbox": {
+      "equals": true
+    }
+  },
+  "page_size": 10
+}

@@ -1,0 +1,14 @@
+flowchart TD
+  A[Ticket nuevo en Notion] --> B{Estado y datos válidos}
+  B -->|No| C[Incompleto y registro de bloqueo]
+  B -->|Sí| D[Consultar artículos vigentes]
+  D --> E[GPT genera borrador]
+  E --> F[Esperando aprobación y aviso Gmail]
+  E -->|Error| G[Registrar error y Break]
+  F --> H{Aprobación humana}
+  H -->|Rechazo| I[Sin envío]
+  H -->|Aprobación| J{Versión, fecha y cliente válidos}
+  J -->|Sí| K[Enviando]
+  K --> L[Gmail con texto aprobado]
+  L --> M[Guardar hilo y resultado]
+  L -->|Error| N[Conciliación manual sin reenvío]

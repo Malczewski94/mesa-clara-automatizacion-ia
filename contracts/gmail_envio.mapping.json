@@ -1,0 +1,7 @@
+{
+  "to": "{{cliente.properties.Correo.email}}",
+  "subject": "Mesa Clara | {{ticket_id}}",
+  "body": "{{texto_aprobado_escapado_html}}",
+  "output_thread_id": "{{6.threadId}}",
+  "estado": "Configurado; envío final sin verificar"
+}

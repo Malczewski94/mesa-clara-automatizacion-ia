@@ -1,0 +1,46 @@
+{
+  "parent": {
+    "database_id": "{{config.ejecuciones_database_id}}"
+  },
+  "properties": {
+    "Ejecucion": {
+      "title": [
+        {
+          "text": {
+            "content": "{{execution_id}}"
+          }
+        }
+      ]
+    },
+    "Ticket": {
+      "relation": [
+        {
+          "id": "{{ticket_id}}"
+        }
+      ]
+    },
+    "Resultado": {
+      "select": {
+        "name": "Error"
+      }
+    },
+    "Etapa": {
+      "rich_text": [
+        {
+          "text": {
+            "content": "IA"
+          }
+        }
+      ]
+    },
+    "Detalle seguro": {
+      "rich_text": [
+        {
+          "text": {
+            "content": "{{error_sanitizado}}"
+          }
+        }
+      ]
+    }
+  }
+}

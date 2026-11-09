@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "Borrador": {
+      "rich_text": [
+        {
+          "text": {
+            "content": "{{4.result}}"
+          }
+        }
+      ]
+    },
+    "Modelo": {
+      "rich_text": [
+        {
+          "text": {
+            "content": "{{4.model}}"
+          }
+        }
+      ]
+    },
+    "Estado": {
+      "select": {
+        "name": "Esperando aprobacion"
+      }
+    }
+  }
+}

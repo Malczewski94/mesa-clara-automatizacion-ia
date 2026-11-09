@@ -1,0 +1,314 @@
+{
+  "name": "Mesa Clara 02 - Envio con aprobacion humana",
+  "flow": [
+    {
+      "id": 2,
+      "module": "notion:watchDatabaseItems",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0,
+        "watchBy": "database",
+        "select": "update",
+        "limit": 5,
+        "database": "c962a3f6-ed68-46fa-8ea4-e1bc3552f0a4"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 500,
+          "y": 0,
+          "name": "01 | Detectar cambios de aprobacion"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "module": "notion:makeApiCall",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "url": "/v1/pages/{{2.id}}",
+        "version": "2022-06-28",
+        "method": "GET",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3500,
+          "y": 0,
+          "name": "02 | Releer ticket antes de enviar"
+        }
+      },
+      "filter": {
+        "name": "Solo aprobaciones",
+        "conditions": [
+          [
+            {
+              "a": "{{2.properties_value.Estado.name}}",
+              "o": "text:equal",
+              "b": "Aprobado"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "module": "notion:makeApiCall",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "url": "/v1/pages/{{get(14.body.properties.Cliente.relation; \"1.id\")}}",
+        "version": "2022-06-28",
+        "method": "GET",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3750,
+          "y": 0,
+          "name": "03 | Leer cliente relacionado"
+        }
+      },
+      "filter": {
+        "name": "Aprobacion vigente y sin envio previo",
+        "conditions": [
+          [
+            {
+              "a": "{{14.body.properties.Estado.select.name}}",
+              "o": "text:equal",
+              "b": "Aprobado"
+            },
+            {
+              "a": "{{length(trim(join(map(get(14.body.properties; \"Texto aprobado.rich_text\"); \"plain_text\"); \"\")))}}",
+              "o": "number:greater",
+              "b": "0"
+            },
+            {
+              "a": "{{get(14.body.properties; \"Version aprobada.number\")}}",
+              "o": "number:equal",
+              "b": "{{14.body.properties.Version.number}}"
+            },
+            {
+              "a": "{{get(14.body.properties; \"Aprobado el.date.start\")}}",
+              "o": "exist"
+            },
+            {
+              "a": "{{get(14.body.properties; \"Enviado el.date.start\")}}",
+              "o": "notexist"
+            },
+            {
+              "a": "{{length(14.body.properties.Cliente.relation)}}",
+              "o": "number:equal",
+              "b": "1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "module": "notion:makeApiCall",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "url": "/v1/pages/{{2.id}}",
+        "version": "2022-06-28",
+        "method": "PATCH",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": "{\"properties\": {\"Estado\": {\"select\": {\"name\": \"Enviando\"}}}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 4000,
+          "y": 0,
+          "name": "04 | Bloquear reenvios"
+        }
+      },
+      "filter": {
+        "name": "Cliente con correo",
+        "conditions": [
+          [
+            {
+              "a": "{{15.body.properties.Correo.email}}",
+              "o": "exist"
+            },
+            {
+              "a": "{{15.body.properties.Activo.checkbox}}",
+              "o": "boolean:equal",
+              "b": "true"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "module": "google-email:sendAnEmail",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "to": [
+          "{{15.body.properties.Correo.email}}"
+        ],
+        "subject": "[Mesa Clara] Respuesta al ticket {{2.id}}",
+        "bodyType": "rawHtml",
+        "content": "{{replace(replace(replace(join(map(get(14.body.properties; \"Texto aprobado.rich_text\"); \"plain_text\"); \"\"); \"&\"; \"&amp;\"); \"<\"; \"&lt;\"); \">\"; \"&gt;\")}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 1500,
+          "y": 0,
+          "name": "05 | Enviar solo el texto aprobado"
+        }
+      },
+      "onerror": [
+        {
+          "id": 19,
+          "module": "notion:makeApiCall",
+          "version": 1,
+          "parameters": {
+            "__IMTCONN__": 0
+          },
+          "mapper": {
+            "url": "/v1/pages",
+            "version": "2022-06-28",
+            "method": "POST",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": "{\"parent\": {\"database_id\": \"a847bd21-fed3-4a2f-91f4-bb96ac514454\"}, \"properties\": {\"Ejecucion\": {\"title\": [{\"text\": {\"content\": \"Envio requiere conciliacion | {{2.id}}\"}}]}, \"Ticket\": {\"relation\": [{\"id\": \"{{2.id}}\"}]}, \"Resultado\": {\"select\": {\"name\": \"Error\"}}, \"Etapa\": {\"rich_text\": [{\"text\": {\"content\": \"Envio requiere conciliacion\"}}]}, \"Intentos\": {\"number\": 1}, \"Fin\": {\"date\": {\"start\": \"{{formatDate(now; \\\"YYYY-MM-DDTHH:mm:ssZ\\\")}}\"}}}}"
+          },
+          "metadata": {
+            "designer": {
+              "x": 4750,
+              "y": 0,
+              "name": "Registrar Error | Envio requiere conciliacion"
+            }
+          }
+        },
+        {
+          "id": 20,
+          "module": "builtin:Break",
+          "version": 1,
+          "parameters": {},
+          "mapper": {
+            "retry": false,
+            "count": "3",
+            "interval": "15"
+          },
+          "metadata": {
+            "designer": {
+              "x": 5000,
+              "y": 0,
+              "name": "Detener sin reenvio automatico"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "module": "notion:updateADatabaseItem",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "updateBy": "database",
+        "select": "list",
+        "database": "c962a3f6-ed68-46fa-8ea4-e1bc3552f0a4",
+        "page": "{{2.id}}",
+        "fields": {
+          "%7C%5EcX": "Enviado",
+          "UPFy": "{{6.threadId}}",
+          "KRaY": {
+            "start": "{{now}}",
+            "includeTime": true
+          }
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 1250,
+          "y": 0,
+          "name": "06 | Guardar hilo y fecha de envio"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "module": "notion:makeApiCall",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "url": "/v1/pages",
+        "version": "2022-06-28",
+        "method": "POST",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": "{\"parent\": {\"database_id\": \"a847bd21-fed3-4a2f-91f4-bb96ac514454\"}, \"properties\": {\"Ejecucion\": {\"title\": [{\"text\": {\"content\": \"Respuesta enviada | {{2.id}}\"}}]}, \"Ticket\": {\"relation\": [{\"id\": \"{{2.id}}\"}]}, \"Resultado\": {\"select\": {\"name\": \"Correcto\"}}, \"Etapa\": {\"rich_text\": [{\"text\": {\"content\": \"Respuesta enviada\"}}]}, \"Intentos\": {\"number\": 1}, \"Fin\": {\"date\": {\"start\": \"{{formatDate(now; \\\"YYYY-MM-DDTHH:mm:ssZ\\\")}}\"}}}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 4500,
+          "y": 0,
+          "name": "Registrar Correcto | Respuesta enviada"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": true,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": true,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "us2.make.com",
+    "notes": []
+  }
+}
