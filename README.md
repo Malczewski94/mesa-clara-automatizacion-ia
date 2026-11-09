@@ -11,7 +11,7 @@ Stack: Make + Notion + OpenAI GPT-5 nano (Simple text prompt de Make) + Gmail. C
 - Seis ejecuciones de recepción, incluidas consultas incompletas e instrucción maliciosa.
 - Error de validación inducido en el módulo IA registrado automáticamente; Break ejecutado.
 - Escenario emisor creado; sin aprobaciones dejó pasar cero tickets.
-- Aprobación humana de T02 registrada. El envío final todavía no fue ejecutado/verificado.
+- T02 completado: aprobación humana, correo enviado con el texto exacto, fecha/hilo guardados y registro Correcto. [Verificación](evidence/T02_envio_verificado.md).
 - Dashboard interno: tasa de errores sobre registros terminados y tablero de resultados.
 
 ## Archivos
@@ -42,7 +42,7 @@ Requieren acceso a las cuentas. No se verificó publicación de solo lectura.
 
 ## Pendientes antes de la entrega
 
-1. Recuperar navegador; ejecutar T02 aprobado y verificar correo, fecha e hilo.
+1. Incorporar al PDF y anexos la verificación de T02 del 9/11 a las 13:22; el envío ya está confirmado.
 2. Probar versión obsoleta, rechazo y ausencia de duplicados. Completar rutas para fallos de Notion/Gmail previos al envío y fallos del registro posterior.
 3. Exportar los dos blueprints desde Make y capturar evidencia real.
 4. Publicar dashboard sin correo personal ni datos sensibles; verificar acceso anónimo.
@@ -51,7 +51,7 @@ Requieren acceso a las cuentas. No se verificó publicación de solo lectura.
 
 ## Límites explícitos de la rúbrica
 
-No se ejecutaron Claude ni Batch API ni Omni AI. El 50% de Batches es una comparación de tarifas para una extensión propuesta, no ahorro medido. Simple text prompt no mostró Max Tokens; 180 palabras es una instrucción, no un límite duro. No hay deduplicación global por Mensaje ID. El modelo relacional se generó mediante IA en Notion. El escenario emisor sigue pendiente de prueba completa.
+No se ejecutaron Claude ni Batch API ni Omni AI. El 50% de Batches es una comparación de tarifas para una extensión propuesta, no ahorro medido. Simple text prompt no mostró Max Tokens; 180 palabras es una instrucción, no un límite duro. No hay deduplicación global por Mensaje ID. El modelo relacional se generó mediante IA en Notion. El camino aprobado del emisor está verificado; faltan casos adicionales de bloqueo y evidencia visual.
 
 ## Anexos técnicos actualizados
 
