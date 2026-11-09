@@ -54,6 +54,10 @@ La prueba de error dejó una ejecución incompleta en la cola de Make. Después 
 - [Correspondencia con la consigna](docs/cierre_entrega.md).
 - [Importación y conexiones](workflows/LEER_ANTES_DE_IMPORTAR.md).
 
+## Ajustes pendientes de la consigna
+
+Falta configurar un límite técnico de tokens y verificar respuestas dentro de un hilo existente. Guardar Thread ID después de enviar no equivale a reutilizarlo. Ver [configuración y pruebas de los ajustes](docs/ajustes_tokens_hilos.md). El video también está pendiente.
+
 ## Alcance de esta versión
 
 La implementación utiliza GPT-5 nano con conocimiento acotado y revisión humana. Claude para lectura extensa y Batches para históricos forman parte de la estrategia de ampliación; no se declara consumo ni ahorro real de esas alternativas. La base fue diseñada mediante instrucciones a IA y el conector Notion, no con Omni AI de Airtable.
