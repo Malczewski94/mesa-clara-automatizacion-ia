@@ -1,7 +1,9 @@
-# Evidencias
+# Evidencias del proyecto
 
-Las capturas anteriores del flujo se mostraron en la conversación, pero sus archivos locales dejaron de estar disponibles tras la interrupción del entorno. No se sustituyeron por imágenes simuladas.
+- [Capturas originales y explicación](capturas/README.md).
+- [Envío aprobado T02](T02_envio_verificado.md).
+- [Comprobación de ausencia de reenvío](E04_sin_reenvio.md).
+- [Cierre operativo](CIERRE_PUBLICO.md).
+- [Resultados de las pruebas](../tests/resultados.csv).
 
-Capturas pendientes de recuperar: escenario 01 completo; historial de seis ejecuciones; bloqueo T03/T04; error T06 y su registro; aprobación T02; envío final y Thread ID; dashboard público. No capturar pantallas de OAuth, claves, conexiones expandidas ni el correo personal del propietario.
-
-Las filas de Notion y el historial de Make son la evidencia primaria. `tests/resultados.csv` es una transcripción de observaciones, no una ejecución de test automatizada.
+Los diagramas del PDF explican la arquitectura; las imágenes de `capturas/` son evidencia de Make. Los ensayos de error se identifican como tales. El único archivo de presentación que resta incorporar es el video final del autor.

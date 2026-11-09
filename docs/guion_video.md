@@ -1,9 +1,12 @@
-# Guion de demo - 3 minutos (grabación pendiente)
+# Guion de demostración: tres minutos
 
-0:00-0:20: presentar Mesa Clara y el caso de soporte; mostrar que son datos ficticios.
-0:20-0:50: mostrar Clientes, Conocimiento y Tickets relacionados. Crear una consulta de acceso con cliente válido.
-0:50-1:20: mostrar escenario 01, filtro de entrada, recuperación de artículos y GPT. Ejecutar o esperar el disparador. Abrir borrador y aviso Gmail.
-1:20-1:50: mostrar que el emisor no envía sin aprobación. El responsable revisa el texto, completa versión y fecha, y cambia a Aprobado.
-1:50-2:15: ejecutar el emisor; mostrar mensaje final y el hilo registrado. Esta parte sólo debe grabarse cuando esté realmente verificada.
-2:15-2:40: mostrar T03/T04 incompletos y T06 con fallo de validación inducido; aclarar que no fue una caída real de OpenAI.
-2:40-3:00: dashboard y repositorio con PDF, exportaciones y evidencias. Ocultar correo personal y toda credencial. No afirmar que los caminos pendientes funcionan.
+| Tiempo | Pantalla | Explicación sugerida |
+|---|---|---|
+| 0:00-0:25 | Ticket en Notion y relación con Cliente | «Mesa Clara prepara respuestas de soporte usando conocimiento vigente. La entrada es un ticket con consulta y cliente.» |
+| 0:25-1:00 | Escenario de recepción e historial correcto | «Make valida los datos, consulta los artículos y genera el borrador con GPT. Guarda el resultado y avisa al responsable.» |
+| 1:00-1:35 | Borrador y campos de aprobación | «El cliente todavía no recibe nada. Reviso el texto, su versión y la fecha antes de aprobarlo.» |
+| 1:35-2:05 | Escenario de envío e historial de T02 | «El segundo escenario relee la aprobación y envía solamente ese texto. Después guarda fecha e hilo. La prueba completó siete operaciones.» |
+| 2:05-2:35 | Historial de faltantes y error T06 | «Si faltan datos, no se usa IA. Si falla el módulo, se registra el error y se detiene para recuperarlo de forma controlada.» |
+| 2:35-3:00 | Panel público y repositorio | «El panel muestra resultados y tasa de errores. El repositorio reúne el PDF, los blueprints, contratos y capturas de las pruebas.» |
+
+Usar los historiales existentes permite mostrar evidencia sin enviar otro correo. Si se demuestra una ejecución nueva, utilizar exclusivamente el cliente de prueba y aprobar expresamente ese ticket. Ocultar direcciones personales. El aviso naranja de las capturas antiguas correspondía a T06; la cola ya fue liberada y su historial se conservó.

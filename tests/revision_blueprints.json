@@ -1,0 +1,24 @@
+{
+  "tipo": "Inspección estática de exportaciones; no sustituye ejecuciones reales",
+  "fecha": "2026-11-09",
+  "resultados": {
+    "01_recepcion": {
+      "ids_unicos": true,
+      "secuencial": true,
+      "cola_incompletas": true,
+      "modelo": true,
+      "registro_error_ia": true,
+      "reintentos_limitados": true,
+      "router_faltantes": true
+    },
+    "02_envio": {
+      "ids_unicos": true,
+      "secuencial": true,
+      "cola_incompletas": true,
+      "version_numerica": true,
+      "sin_envio_previo": true,
+      "sin_reintento_gmail": true,
+      "estado_aprobado": true
+    }
+  }
+}

@@ -1,5 +1,7 @@
-# Recorrido documental
+# Video de demostración
 
-MP4 de 180 segundos, 1280x720, sin audio. Seis láminas de 30 segundos explican entrada, memoria, IA, aprobación, resultado real y resiliencia. No contiene grabación de pantalla ni simula ejecuciones. No sustituye la demo en vivo pedida por la consigna.
+El autor incorporará aquí su grabación final de aproximadamente tres minutos. Los videos de prueba anteriores fueron retirados de la entrega.
 
-Generación reproducible: tools/build_final.py produce las láminas; FFmpeg con framerate 1/30 y duración 180 genera el MP4.
+Nombre previsto: `Mesa_Clara_Demo.mp4`. También puede incluirse un enlace de acceso público si el archivo se aloja en otro servicio.
+
+Guion: [docs/guion_video.md](../docs/guion_video.md). Antes de publicar, ocultar claves, credenciales y direcciones de correo personales. Mostrar el ticket de entrada, el procesamiento, la aprobación humana y el resultado final. No es necesario mostrar una clave API ni recrear los fallos durante la grabación: se pueden explicar con los historiales existentes.

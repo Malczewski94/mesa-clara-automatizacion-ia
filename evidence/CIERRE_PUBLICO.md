@@ -1,13 +1,23 @@
 # Cierre operativo
 
-9 de noviembre de 2026. Make confirmó los dos escenarios activos cada seis horas. No se compraron créditos ni se activaron recargas.
+9 de noviembre de 2026.
 
-T02 completó aprobación y envío. La lectura directa en Gmail y Notion confirmó el texto, el estado Enviado, la fecha y el mismo hilo. Una segunda ejecución no duplicó la respuesta.
+## Automatización
 
-E03 (versiones diferentes) y E05 (rechazo) permanecieron sin fecha de envío ni hilo tras el ensayo adicional. La búsqueda de respuestas del proyecto no encontró nuevos mensajes. La inspección individual de filtros no fue concluyente y no se presenta como prueba plenamente auditada.
+Dos escenarios Make activos cada seis horas. Recepción valida entradas y prepara borradores. El emisor relee la aprobación antes de contactar al cliente. T02 completó el envío con texto aprobado, fecha e hilo guardados; una segunda ejecución no duplicó el mensaje.
 
-Panel ejecutivo: tasa de error, gráfico por resultado y últimas ejecuciones vinculados a Notion. Corte: tres Correcto, dos Bloqueado y un Error. Cobertura parcial y datos de demostración. El panel es interno: su publicación quedó bloqueada por falta de sesión web en Notion.
+T03 y T04 se bloquearon sin ejecutar IA. T06 provocó un error de validación por modelo inválido; el log se guardó y se ejecutó Break. No fue una caída real del proveedor.
 
-El video dura tres minutos y es documental, sin audio, con láminas identificadas. No sustituye una grabación real de Make. Tampoco se obtuvieron capturas descargables de la UI.
+La cola de recepción quedó vacía después de retirar sólo el elemento incompleto de T06. Desapareció el aviso que impedía nuevas ejecuciones. El historial y el log se conservaron.
 
-Las exportaciones originales se conservan. La programación se ajustó después de exportarlas; al importar en otra cuenta hay que revisar conexiones y horario. No se cambiaron nodos ni conexiones de los escenarios durante este cierre.
+## Panel
+
+[Panel público](https://wobbly-muse-d95.notion.site/Panel-ejecutivo-Mesa-Clara-413a709292e981f9887feff8e745cb49), verificado sin iniciar sesión y sin avisos de pago. Seis filas: Correcto 3, Bloqueado 2 y Error 1. Promedio de Es error: 0,17 por redondeo. Se sustituyeron los gráficos restringidos por tablas del plan gratuito.
+
+La base Ejecuciones está publicada para permitir las vistas vinculadas. Tickets, Clientes, Configuracion y la página principal no se publicaron. Los datos son de demostración y la cobertura de registros es parcial.
+
+## Evidencia
+
+Las seis capturas originales están en `evidence/capturas/`. Los blueprints se preservan; su horario vigente se documenta aparte porque la programación se cambió después de exportarlos. Las pruebas E03/E05 no se presentan como verificadas individualmente sin evidencia inequívoca del bundle.
+
+El video final será incorporado por el autor. No se compraron suscripciones ni se activaron recargas.
