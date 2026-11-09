@@ -9,10 +9,17 @@ Make + Notion + OpenAI GPT-5 nano + Gmail. Un ticket recupera conocimiento, gene
 - [PDF: arquitectura y manual operativo](docs/Mesa_Clara_Arquitectura_y_Manual.pdf)
 - [Blueprint original: recepción](workflows/01_recepcion.blueprint.json)
 - [Blueprint original: envío aprobado](workflows/02_envio.blueprint.json)
-- [Panel ejecutivo en Notion — requiere acceso](https://app.notion.com/p/413a709292e981f9887feff8e745cb49)
+- [Panel ejecutivo público — solo lectura](https://wobbly-muse-d95.notion.site/Panel-ejecutivo-Mesa-Clara-413a709292e981f9887feff8e745cb49)
+- [Capturas reales de escenarios y ejecuciones](evidence/capturas/)
 - [Video documental de 3 minutos](video/Mesa_Clara_Recorrido_Documental_3min.mp4) — sin audio; no es una grabación en vivo de Make.
 - [Pruebas](tests/resultados.csv), [verificación de T02](evidence/T02_envio_verificado.md) y [cierre operativo](evidence/CIERRE_PUBLICO.md).
 - [Diccionario de datos](docs/diccionario_datos.md), [esquema Notion](docs/esquema_notion.json) y [contratos JSON](contracts/).
+
+## Panel público y evidencias
+
+El panel se comprobó sin iniciar sesión: seis registros visibles, distribuidos en tres Correcto, dos Bloqueado y un Error. La tasa de error es 1/6 (16,7 %); Notion muestra el promedio redondeado como 0,17. Las tablas y el cálculo sustituyen los gráficos sujetos al límite del plan gratuito. Incluye un fallo inducido de prueba y cobertura parcial; no son métricas de producción.
+
+La ejecución incompleta de T06 se retiró de la cola después de documentarla. Make confirmó la cola vacía y la desaparición del aviso de bloqueo. El historial y el registro de error permanecen disponibles.
 
 ## Resultado verificado
 
@@ -22,10 +29,9 @@ E03 (versiones diferentes) y E05 (rechazo) quedaron sin fecha/hilo y no se encon
 
 Los dos escenarios quedaron **Active / Every 6 hours**. Frecuencia elegida para limitar sondeos: aproximadamente 240 consultas mensuales entre ambos, más consumo de procesamiento e IA. No es un SLA de atención inmediata. No se compraron créditos ni se activaron recargas.
 
-## Pendientes que impiden certificar el 100 % de la consigna
+## Alcance y limitaciones
 
-- Publicar el panel en modo lectura y verificar acceso anónimo. El navegador carece de sesión Notion; el panel interno sí existe.
-- Incorporar capturas reales descargables y una grabación de la ejecución en Make. El video incluido es documental y está rotulado como tal.
+- Incorporar al repositorio el video actualizado de tres minutos con capturas reales. Ya está generado; el archivo enlazado arriba es el recorrido documental anterior.
 - Completar contingencias para todos los módulos de Notion/Gmail y verificar individualmente E03/E05.
 - No se usaron Omni AI, Claude ni Batch API. La estrategia de costos distingue propuestas de consumo real; el 50 % de Batches no se declara ahorro medido.
 - Simple text prompt no expuso Max Tokens. No hay deduplicación global por Mensaje ID ni garantía de entrega exactamente una vez.
