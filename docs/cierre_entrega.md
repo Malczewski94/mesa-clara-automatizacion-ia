@@ -20,7 +20,7 @@ Fecha de cierre documental: 9 de noviembre de 2026.
 
 ## Incorporación pendiente
 
-Falta resolver la conexión propia de OpenAI vencida para configurar y probar Max Output Tokens. Gmail ya fue probado con E07/E08 y una reejecución sin duplicados. El PDF describe la arquitectura inicial; esta actualización de la ruta de hilos se documenta en evidence/E07_E08_hilos.md.
+Falta disponer de crédito en la API para completar la prueba con Max Output Tokens. La clave renovada verifica, pero la generación devolvió 429 por falta de crédito. Gmail ya fue probado con E07/E08 y una reejecución sin duplicados. El PDF describe la arquitectura inicial; esta actualización de la ruta de hilos se documenta en evidence/E07_E08_hilos.md.
 
 El autor agregará el video final de aproximadamente tres minutos. El guion está en `docs/guion_video.md`; no debe mostrar credenciales ni direcciones personales. Los videos descartados no forman parte de la entrega.
 

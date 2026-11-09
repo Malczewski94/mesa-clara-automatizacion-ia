@@ -60,7 +60,7 @@ La prueba de error dejó una ejecución incompleta en la cola de Make. Después 
 
 La respuesta en hilo ya está implementada y probada en Make: E07 conservó el Thread ID original, E08 creó un hilo nuevo y una segunda ejecución no duplicó mensajes. Ver [evidencia](evidence/E07_E08_hilos.md).
 
-Falta configurar y probar el límite técnico de tokens: la conexión propia de OpenAI devuelve un error 401 por clave vencida. El módulo activo de recepción sigue funcionando con Simple text prompt. Ver [detalle del bloqueo](docs/ajustes_tokens_hilos.md). El video también está pendiente.
+Falta configurar y probar el límite técnico de tokens: la clave renovada ya verifica correctamente, pero la generación devuelve 429 por falta de créditos en la API. El módulo activo de recepción sigue funcionando con Simple text prompt. Ver [detalle del bloqueo](docs/ajustes_tokens_hilos.md). El video también está pendiente.
 
 ## Alcance de esta versión
 

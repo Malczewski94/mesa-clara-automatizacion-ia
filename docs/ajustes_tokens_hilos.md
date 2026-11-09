@@ -1,11 +1,11 @@
 # Ajustes de tokens y conversación
 
-Estado: Gmail implementado y probado; límite técnico de tokens bloqueado por conexión OpenAI vencida.
+Estado: Gmail implementado y probado; límite técnico de tokens bloqueado por falta de créditos en la API.
 
 ## Avance comprobado
-- OpenAI: la conexión propia devolvió `[401] Your API key has expired. Create a new API key to continue.` al cargar modelos. Se confirmó que Generate a response expone Max Output Tokens. No se sustituyó el módulo activo ni se compró saldo.
+- OpenAI: la clave renovada pasó Verify. El 9 de noviembre a las 19:42 (Argentina) se probó un módulo aislado con GPT-5 nano, Max Output Tokens = 1200, esfuerzo mínimo, Store = false y sin crear conversación. La API devolvió `[429] You have no credits remaining`. No generó texto ni envió correos. Se descartó el módulo de prueba sin cambiar el flujo activo.
 - Gmail: el blueprint fue importado, guardado, reabierto y probado en Make. E07 respondió dentro del hilo original; E08 creó un correo nuevo; la reejecución no duplicó mensajes. [Evidencia](../evidence/E07_E08_hilos.md).
-- Para tokens hace falta renovar la API key en la conexión OpenAI de Make. La clave nunca debe incluirse en GitHub ni en el chat.
+- Para completar la prueba hace falta crédito disponible en la API. La clave ya es válida. No se compró saldo ni se activó recarga automática.
 
 ## Límite técnico de generación
 El módulo Simple text prompt actual no expone Max Output Tokens. Limitar el prompt a 180 palabras no configura un tope técnico.
