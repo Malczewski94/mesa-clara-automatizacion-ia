@@ -10,3 +10,6 @@ E02,Aprobación humana T02,Usuario dijo Apruebo T02; versión 1 enviada tras apr
 E03,Versión obsoleta,"Ensayo 16:25:57: relectura completada, entrada bloqueada antes de leer cliente; sin operación Gmail",Verificado en secuencia controlada con E05
 E04,Reejecución tras envío,Segunda ejecución manual 13:25; cero pasan Solo aprobaciones; búsqueda Gmail sigue con un mensaje,Verificado en esta secuencia; no deduplicación global
 E05,Rechazo humano,Ensayo 16:25:57: entrada bloqueada antes de releer; dos operaciones totales y cero envío Gmail,Verificado en secuencia controlada con E03
+E07,Respuesta en hilo,"Mismo Thread ID; cabeceras de respuesta; texto exacto; Enviado y fecha persistidos",Verificado 2026-11-09 21:59 UTC
+E08,Correo nuevo,"Nuevo Thread ID; Enviado y fecha persistidos",Verificado 2026-11-09 21:59 UTC
+E09,Reejecución E07 y E08,"Cero pasan primer filtro; hilos mantienen 2 y 1 mensajes",Verificado en esta secuencia

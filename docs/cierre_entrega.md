@@ -13,12 +13,14 @@ Fecha de cierre documental: 9 de noviembre de 2026.
 ## Entregables disponibles
 
 - PDF de arquitectura y manual.
-- Dos blueprints originales de Make en JSON.
+- Dos blueprints de Make en JSON; envío actualizado con rutas de correo nuevo y respuesta en hilo.
 - Enlace público al panel y a la base de ejecuciones en lectura.
-- Seis capturas originales de escenarios y ejecuciones.
+- Siete capturas de escenarios y ejecuciones, incluida la ruta de respuesta en hilo.
 - Registro de pruebas, contratos, costos y manual operativo.
 
 ## Incorporación pendiente
+
+Falta resolver la conexión propia de OpenAI vencida para configurar y probar Max Output Tokens. Gmail ya fue probado con E07/E08 y una reejecución sin duplicados. El PDF describe la arquitectura inicial; esta actualización de la ruta de hilos se documenta en evidence/E07_E08_hilos.md.
 
 El autor agregará el video final de aproximadamente tres minutos. El guion está en `docs/guion_video.md`; no debe mostrar credenciales ni direcciones personales. Los videos descartados no forman parte de la entrega.
 

@@ -30,7 +30,9 @@ flowchart TD
     E --> G{Revisión humana}
     G -->|Aprobado| H[Releer versión y comprobar envío previo]
     G -->|Rechazado| I[No enviar]
-    H --> J[Enviar texto aprobado y guardar hilo]
+    H --> J{Thread ID existente}
+    J -->|No| K[Crear correo y guardar hilo]
+    J -->|Sí| L[Responder en el mismo hilo]
 ```
 
 La solución utiliza **Make, Notion, OpenAI y Gmail**. Se divide en dos escenarios para separar la preparación de la respuesta de su autorización. Ambos quedaron activos cada seis horas. El envío requiere texto aprobado, versiones numéricas coincidentes, fecha de aprobación y un cliente activo con correo.
@@ -41,7 +43,7 @@ Se realizaron seis ejecuciones de recepción: consultas válidas, consulta vací
 
 ![Envío aprobado completado](evidence/capturas/04_envio_correcto.png)
 
-El panel se verificó sin iniciar sesión. Muestra seis registros: tres correctos, dos bloqueados y un error. La tasa de error de ese conjunto es 16,7 %; Notion la presenta redondeada como promedio 0,17. Son ensayos con fallos intencionales y registro parcial, no una medición del servicio en producción.
+El panel se verificó sin iniciar sesión. En la verificación inicial mostraba seis registros: tres correctos, dos bloqueados y un error. La tasa de error de ese conjunto es 16,7 %; Notion la presenta redondeada como promedio 0,17. Son ensayos con fallos intencionales y registro parcial, no una medición del servicio en producción.
 
 La prueba de error dejó una ejecución incompleta en la cola de Make. Después de documentarla, se retiró únicamente ese elemento y se verificó la desaparición del bloqueo. El historial y el registro en Notion se conservaron.
 
@@ -56,7 +58,9 @@ La prueba de error dejó una ejecución incompleta en la cola de Make. Después 
 
 ## Ajustes pendientes de la consigna
 
-Falta configurar un límite técnico de tokens y verificar respuestas dentro de un hilo existente. Guardar Thread ID después de enviar no equivale a reutilizarlo. Ver [configuración y pruebas de los ajustes](docs/ajustes_tokens_hilos.md). El video también está pendiente.
+La respuesta en hilo ya está implementada y probada en Make: E07 conservó el Thread ID original, E08 creó un hilo nuevo y una segunda ejecución no duplicó mensajes. Ver [evidencia](evidence/E07_E08_hilos.md).
+
+Falta configurar y probar el límite técnico de tokens: la conexión propia de OpenAI devuelve un error 401 por clave vencida. El módulo activo de recepción sigue funcionando con Simple text prompt. Ver [detalle del bloqueo](docs/ajustes_tokens_hilos.md). El video también está pendiente.
 
 ## Alcance de esta versión
 
@@ -64,4 +68,4 @@ La implementación utiliza GPT-5 nano con conocimiento acotado y revisión human
 
 El límite de 180 palabras del prompt no es un límite técnico de tokens. Tampoco hay una transacción atómica entre Gmail y Notion ni unicidad global por Mensaje ID. La recuperación de fallos de persistencia exige conciliación, tal como detalla el manual. La prueba controlada de E03/E05 verificó los dos bloqueos y la ausencia de ejecución de Gmail; ver [registro de filtros](evidence/E03_E05_filtros.md).
 
-Los blueprints originales corresponden al flujo probado. La programación se ajustó después de exportarlos y se documenta en [configuración operativa](workflows/configuracion_operativa.json). Para importarlos en otra cuenta hay que reasignar conexiones y bases.
+El blueprint de envío fue actualizado tras las pruebas E07/E08 del 9 de noviembre; el de recepción conserva la versión probada. La programación se ajustó después de exportarlos y se documenta en [configuración operativa](workflows/configuracion_operativa.json). Para importarlos en otra cuenta hay que reasignar conexiones y bases.
