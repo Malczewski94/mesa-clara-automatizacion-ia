@@ -1,61 +1,39 @@
-# Mesa Clara - Ecosistema de soporte con IA
+# Mesa Clara | Automatización de soporte con IA
 
-**Estado: implementación parcial verificada. No entregar todavía como final completo.**
+**Flujo principal probado y activo cada seis horas. La entrega conserva brechas explícitas frente a la rúbrica.**
 
-Stack: Make + Notion + OpenAI GPT-5 nano (Simple text prompt de Make) + Gmail. Caso ficticio de soporte SaaS: un ticket consulta artículos vigentes, genera borrador, notifica al responsable y debe esperar aprobación antes del envío final.
+Make + Notion + OpenAI GPT-5 nano + Gmail. Un ticket recupera conocimiento, genera un borrador, avisa al responsable y espera aprobación humana antes de enviar. Caso ficticio de soporte SaaS.
 
-## Implementado y verificado
+## Documentación de entrega
 
-- Base relacional en Notion: Clientes demo, Conocimiento, Tickets, Ejecuciones y Configuracion.
-- Escenario de recepción con filtros, GPT, borrador, aviso Gmail y registro.
-- Seis ejecuciones de recepción, incluidas consultas incompletas e instrucción maliciosa.
-- Error de validación inducido en el módulo IA registrado automáticamente; Break ejecutado.
-- Escenario emisor creado; sin aprobaciones dejó pasar cero tickets.
-- T02 completado: aprobación humana, correo enviado con el texto exacto, fecha/hilo guardados y registro Correcto. [Verificación](evidence/T02_envio_verificado.md).
-- Dashboard interno: tasa de errores sobre registros terminados y tablero de resultados.
+- [PDF: arquitectura y manual operativo](docs/Mesa_Clara_Arquitectura_y_Manual.pdf)
+- [Blueprint original: recepción](workflows/01_recepcion.blueprint.json)
+- [Blueprint original: envío aprobado](workflows/02_envio.blueprint.json)
+- [Panel ejecutivo en Notion — requiere acceso](https://app.notion.com/p/413a709292e981f9887feff8e745cb49)
+- [Video documental de 3 minutos](video/Mesa_Clara_Recorrido_Documental_3min.mp4) — sin audio; no es una grabación en vivo de Make.
+- [Pruebas](tests/resultados.csv), [verificación de T02](evidence/T02_envio_verificado.md) y [cierre operativo](evidence/CIERRE_PUBLICO.md).
+- [Diccionario de datos](docs/diccionario_datos.md), [esquema Notion](docs/esquema_notion.json) y [contratos JSON](contracts/).
 
-## Archivos
+## Resultado verificado
 
-- `docs/Mesa_Clara_Arquitectura_y_Manual.pdf`: arquitectura, modelo, costos, seguridad, pruebas y brechas.
-- [Blueprint original de recepción](workflows/01_recepcion.blueprint.json) y [blueprint original de envío](workflows/02_envio.blueprint.json): exportados de Make y aportados por el usuario; JSON y mapeos revisados. [Instrucciones de importación](workflows/LEER_ANTES_DE_IMPORTAR.md).
-- `tests/resultados.csv`: resultados observados y pruebas pendientes.
-- `tests/aprobacion_T02.json`: aprobación textual del caso de demostración.
-- `docs/guion_video.md`: guion; no sustituye el video.
-- `evidence/ESTADO.md`: capturas a recuperar; no se fabricaron evidencias.
-- `enlaces.json`: destinos reales y entregables aún sin enlace.
+Se observaron seis ejecuciones de recepción, incluidas consultas incompletas, instrucción maliciosa y error de validación inducido. T02 completó el envío el 9/11/2026 a las 13:22 Argentina: correo con texto exacto aprobado, fecha e hilo en Notion y registro Correcto. Una segunda ejecución no generó otro correo.
 
-## Repositorio de entrega
+E03 (versiones diferentes) y E05 (rechazo) quedaron sin fecha/hilo y no se encontraron nuevas respuestas después del ensayo adicional. La inspección individual de sus filtros fue inconcluyente: se documentan como verificación parcial, no como pruebas plenamente auditadas.
 
-https://github.com/Malczewski94/mesa-clara-automatizacion-ia
+Los dos escenarios quedaron **Active / Every 6 hours**. Frecuencia elegida para limitar sondeos: aproximadamente 240 consultas mensuales entre ambos, más consumo de procesamiento e IA. No es un SLA de atención inmediata. No se compraron créditos ni se activaron recargas.
 
-[Ver PDF de arquitectura y manual](docs/Mesa_Clara_Arquitectura_y_Manual.pdf) · [Pruebas](tests/resultados.csv) · [Lógica del flujo](workflows/)
+## Pendientes que impiden certificar el 100 % de la consigna
 
-## Enlaces de trabajo
+- Publicar el panel en modo lectura y verificar acceso anónimo. El navegador carece de sesión Notion; el panel interno sí existe.
+- Incorporar capturas reales descargables y una grabación de la ejecución en Make. El video incluido es documental y está rotulado como tal.
+- Completar contingencias para todos los módulos de Notion/Gmail y verificar individualmente E03/E05.
+- No se usaron Omni AI, Claude ni Batch API. La estrategia de costos distingue propuestas de consumo real; el 50 % de Batches no se declara ahorro medido.
+- Simple text prompt no expuso Max Tokens. No hay deduplicación global por Mensaje ID ni garantía de entrega exactamente una vez.
 
-Notion: https://app.notion.com/p/413a709292e9810ba33edfab203ab1a7
+## Operación e importación
 
-Recepción: https://us2.make.com/2933793/scenarios/6962342/edit
+[Instrucciones](workflows/LEER_ANTES_DE_IMPORTAR.md). Los blueprints originales se preservan sin alterar la lógica. Se exportaron antes del ajuste final de programación; [configuración operativa](workflows/configuracion_operativa.json) documenta el horario vigente. En otra cuenta hay que reasignar conexiones, bases y propiedades.
 
-Envío: https://us2.make.com/2933793/scenarios/6963384/edit
+[Recepción en Make](https://us2.make.com/2933793/scenarios/6962342/edit) · [Envío en Make](https://us2.make.com/2933793/scenarios/6963384/edit) · [Base del proyecto](https://app.notion.com/p/413a709292e9810ba33edfab203ab1a7)
 
-Requieren acceso a las cuentas. No se verificó publicación de solo lectura.
-
-## Pendientes antes de la entrega
-
-1. Incorporar al PDF y anexos la verificación de T02 del 9/11 a las 13:22; el envío ya está confirmado.
-2. Probar versión obsoleta y rechazo. La segunda ejecución de T02 ya se verificó sin correo duplicado. Completar rutas para fallos de Notion/Gmail previos al envío y fallos del registro posterior.
-3. Incorporar capturas reales: los dos blueprints originales ya están publicados.
-4. Publicar dashboard sin correo personal ni datos sensibles; verificar acceso anónimo.
-5. Incorporar las evidencias visuales finales al completar las verificaciones.
-6. Grabar demo de 3 minutos y activar programación dentro del presupuesto gratuito.
-
-## Límites explícitos de la rúbrica
-
-No se ejecutaron Claude ni Batch API ni Omni AI. El 50% de Batches es una comparación de tarifas para una extensión propuesta, no ahorro medido. Simple text prompt no mostró Max Tokens; 180 palabras es una instrucción, no un límite duro. No hay deduplicación global por Mensaje ID. El modelo relacional se generó mediante IA en Notion. El camino aprobado del emisor está verificado; faltan casos adicionales de bloqueo y evidencia visual.
-
-## Anexos técnicos actualizados
-
-- `docs/esquema_notion.json`: esquema leído de las cinco bases reales, sin registros personales.
-- `docs/diccionario_datos.md`: tipos, relaciones y límites de validación.
-- `contracts/`: estructuras JSON y mapeos documentados; no son evidencias de ejecución.
-- `docs/cierre_entrega.md`: orden de cierre y criterios para declarar cada entregable completo.
+El panel muestra métricas sobre registros parciales de demostración, con errores inducidos. No representan resultados de producción. Ningún entregable contiene claves de API ni contraseñas identificadas en la revisión.

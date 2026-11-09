@@ -1,0 +1,16 @@
+{
+  "fecha": "2026-11-09",
+  "escenarios": [
+    {
+      "nombre": "Recepcion y propuesta IA",
+      "activo": true,
+      "intervalo_minutos": 360
+    },
+    {
+      "nombre": "Envio con aprobacion humana",
+      "activo": true,
+      "intervalo_minutos": 360
+    }
+  ],
+  "nota": "Confirmado en la interfaz Make; horario posterior a las exportaciones originales."
+}
