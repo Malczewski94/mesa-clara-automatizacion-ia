@@ -18,6 +18,6 @@ La base Ejecuciones está publicada para permitir las vistas vinculadas. Tickets
 
 ## Evidencia
 
-Las seis capturas originales están en `evidence/capturas/`. Los blueprints se preservan; su horario vigente se documenta aparte porque la programación se cambió después de exportarlos. Las pruebas E03/E05 no se presentan como verificadas individualmente sin evidencia inequívoca del bundle.
+Las seis capturas originales están en `evidence/capturas/`. Los blueprints se preservan; su horario vigente se documenta aparte porque la programación se cambió después de exportarlos. La prueba controlada E03/E05 de las 16:25:57 mostró una entrada bloqueada antes de releer y la otra antes de leer cliente: dos operaciones, sin ejecución de Gmail. Ver E03_E05_filtros.md.
 
 El video final será incorporado por el autor. No se compraron suscripciones ni se activaron recargas.

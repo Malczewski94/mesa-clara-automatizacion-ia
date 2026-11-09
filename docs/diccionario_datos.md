@@ -73,7 +73,7 @@ Esquema leído de Notion el 9 de noviembre de 2026. Las obligatoriedades indicad
 ## Reglas y límites
 
 - Tickets.Cliente enlaza el cliente; Fuentes enlaza Conocimiento; Ejecuciones.Ticket enlaza el ticket. La relación Fuentes existe pero el flujo aún no la completa automáticamente.
-- Recepción valida Consulta no vacía y relación Cliente presente. El emisor está configurado para exigir exactamente un cliente activo con correo, texto aprobado, versiones iguales y fecha de aprobación; falta probar el envío completo.
+- Recepción valida Consulta no vacía y relación Cliente presente. El emisor está configurado para exigir exactamente un cliente activo con correo, texto aprobado, versiones iguales y fecha de aprobación; envío T02 verificado; E03/E05 bloqueados en la secuencia controlada de las 16:25:57.
 - Version y Version aprobada son números; su igualdad no debe hacerse como texto. Confianza no se calcula actualmente.
 - Mensaje ID no tiene restricción de unicidad global. No afirmar entrega exactamente una vez.
 - Notion representa rich_text como arreglos; concatenar plain_text. Las fechas pueden ser null; comprobar presencia antes de acceder a start.

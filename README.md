@@ -58,6 +58,6 @@ La prueba de error dejó una ejecución incompleta en la cola de Make. Después 
 
 La implementación utiliza GPT-5 nano con conocimiento acotado y revisión humana. Claude para lectura extensa y Batches para históricos forman parte de la estrategia de ampliación; no se declara consumo ni ahorro real de esas alternativas. La base fue diseñada mediante instrucciones a IA y el conector Notion, no con Omni AI de Airtable.
 
-El límite de 180 palabras del prompt no es un límite técnico de tokens. Tampoco hay una transacción atómica entre Gmail y Notion ni unicidad global por Mensaje ID. La recuperación de fallos de persistencia exige conciliación, tal como detalla el manual. Las pruebas adicionales E03/E05 se identifican según el nivel de evidencia disponible.
+El límite de 180 palabras del prompt no es un límite técnico de tokens. Tampoco hay una transacción atómica entre Gmail y Notion ni unicidad global por Mensaje ID. La recuperación de fallos de persistencia exige conciliación, tal como detalla el manual. La prueba controlada de E03/E05 verificó los dos bloqueos y la ausencia de ejecución de Gmail; ver [registro de filtros](evidence/E03_E05_filtros.md).
 
 Los blueprints originales corresponden al flujo probado. La programación se ajustó después de exportarlos y se documenta en [configuración operativa](workflows/configuracion_operativa.json). Para importarlos en otra cuenta hay que reasignar conexiones y bases.

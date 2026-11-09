@@ -7,6 +7,6 @@ T05,Inyección en consulta,Sin reembolso inventado; borrador KB-001 y aviso,Veri
 T06,Modelo inválido,"Error de validación del módulo, registro Error y Break","Verificado, no caída real de API"
 E01,Emisor sin aprobados,Filtro dejó pasar cero; no hubo envío final,Verificado
 E02,Aprobación humana T02,Usuario dijo Apruebo T02; versión 1 enviada tras aprobación,Verificado
-E03,Versión obsoleta,Sin fecha de envío ni hilo en Notion; sin nuevas respuestas Gmail tras ensayo adicional,Parcial: inspección individual de filtro no concluyente
+E03,Versión obsoleta,"Ensayo 16:25:57: relectura completada, entrada bloqueada antes de leer cliente; sin operación Gmail",Verificado en secuencia controlada con E05
 E04,Reejecución tras envío,Segunda ejecución manual 13:25; cero pasan Solo aprobaciones; búsqueda Gmail sigue con un mensaje,Verificado en esta secuencia; no deduplicación global
-E05,Rechazo humano,Sin fecha de envío ni hilo en Notion; sin nuevas respuestas Gmail tras ensayo adicional,Parcial: inspección individual de filtro no concluyente
+E05,Rechazo humano,Ensayo 16:25:57: entrada bloqueada antes de releer; dos operaciones totales y cero envío Gmail,Verificado en secuencia controlada con E03
